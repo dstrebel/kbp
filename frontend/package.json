@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Running Test Command\" && node server.js",
+    "test": "echo \"Running Test Command\" && node test.js",
     "start": "node server.js"
   },
   "author": "",
