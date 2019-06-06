@@ -2,7 +2,7 @@ pipeline:
   build:
     image: node
     commands:
-      - npm install ./frontend
+      - npm install -g redis ./frontend
       - npm test ./frontend
   publish:
     image: plugins/docker
