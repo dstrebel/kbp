@@ -1,1 +1,1 @@
-# Kubernetes Best Practices Ch13
+# Kubernetes Best Practices
