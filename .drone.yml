@@ -1,11 +1,10 @@
----
-kind: pipeline
-name: default
-
-steps:
-- name: frontend
-  image: node
-  commands:
-  - npm install
-  - npm test
-...
+pipeline:
+  build:
+    image: node
+    commands:
+      - npm install ./frontend
+      - npm test ./frontend
+  publish:
+    image: plugins/docker
+    repo: dstrebel/node-drone
+    secrets: [ docker_username, docker_password ]
