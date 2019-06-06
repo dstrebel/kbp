@@ -2,8 +2,9 @@ pipeline:
   build:
     image: node
     commands:
-      - npm i redis --save ./frontend
-      - npm test ./frontend
+      - cd frontend
+      - npm i redis --save
+      - npm test
   publish:
     image: plugins/docker
     repo: dstrebel/node-drone
