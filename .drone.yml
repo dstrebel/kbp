@@ -9,6 +9,7 @@ pipeline:
   publish:
     image: plugins/docker
     dockerfile: ./frontend/Dockerfile
+    context: ./frontend
     repo: dstrebel/frontend
     tags: [latest, v2]
     secrets: [ docker_username, docker_password ]
