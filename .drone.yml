@@ -7,5 +7,10 @@ pipeline:
       - npm test
   publish:
     image: plugins/docker
-    repo: dstrebel/node-drone
-    secrets: [ docker_username, docker_password ]
+    repo: dstrebel/frontend-drone
+    tags: [latest, v2]
+    secrets: [ docker_user, docker_password ]
+  kubectl:
+    image: lachlanevenson/k8s-kubectl
+    secrets: [ kube_server, kube_ca, kube_token ]
+    kubectl: "apply -f ./frontend/deployment.yaml"
