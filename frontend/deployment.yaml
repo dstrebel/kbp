@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: dstrebel/frontend-node:latest
+        image: dstrebel/frontend:latest
         resources:
           limits:
             memory: "128Mi"
