@@ -12,6 +12,6 @@ pipeline:
   #  tags: [latest, v2]
   #  secrets: [ docker_user, docker_password ]
   kubectl:
-    image: lachlanevenson/k8s-kubectl
+    image: komljen/drone-kubectl-helm
     secrets: [ kube_server, kube_ca, kube_token ]
     kubectl: "apply -f ./frontend/deployment.yaml"
