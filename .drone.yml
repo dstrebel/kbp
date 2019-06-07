@@ -8,7 +8,7 @@ pipeline:
       - npm test
   publish:
     image: plugins/docker
-    repo: dstrebel/frontend-drone
+    repo: dstrebel/frontend
     tags: [latest, v2]
     secrets: [ docker_user, docker_password ]
   kubectl:
