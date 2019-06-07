@@ -8,7 +8,7 @@ pipeline:
       - npm test
   publish:
     image: plugins/docker
-    dockerfile: ./frontend
+    dockerfile: ./frontend/Dockerfile
     repo: dstrebel/frontend
     tags: [latest, v2]
     secrets: [ docker_username, docker_password ]
