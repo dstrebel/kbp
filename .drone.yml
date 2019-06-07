@@ -6,12 +6,12 @@ pipeline:
       - cd frontend
       - npm i redis --save
       - npm test
-  #publish:
-  #  image: plugins/docker
-  #  repo: dstrebel/frontend
-  #  tags: [latest, v2]
-  #  secrets: [ docker_user, docker_password ]
+  publish:
+    image: plugins/docker
+    repo: dstrebel/frontend
+    tags: [latest, v2]
+    secrets: [ docker_username, docker_password ]
   kubectl:
     image: komljen/drone-kubectl-helm
-    secrets: [ kube_server, kube_ca, kube_token ]
+    secrets: [ kubernetes_server, kubernetes_cert, kubernetes_token ]
     kubectl: "apply -f ./frontend/deployment.yaml"
