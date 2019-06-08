@@ -1,0 +1,226 @@
+{
+  "chaoslib-version": "1.4.0",
+  "platform": "Darwin-18.2.0-x86_64-i386-64bit",
+  "node": "jarvis.lan",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "Terminating the greeting service should not impact users",
+    "description": "How does this experiment impact your users? Are there errors or does the frontend get slower?",
+    "tags": [
+      "kubernetes"
+    ],
+    "configuration": {
+      "web_app_url": {
+        "type": "env",
+        "key": "FRONTEND_URL"
+      }
+    },
+    "steady-state-hypothesis": {
+      "title": "Services are all available and healthy",
+      "probes": [
+        {
+          "type": "probe",
+          "name": "application-should-be-alive-and-healthy",
+          "tolerance": true,
+          "provider": {
+            "type": "python",
+            "module": "chaosk8s.pod.probes",
+            "func": "pods_in_phase",
+            "arguments": {
+              "label_selector": "run=frontend",
+              "phase": "Running",
+              "ns": "default"
+            }
+          }
+        },
+        {
+          "type": "probe",
+          "name": "application-must-respond-normally",
+          "tolerance": 200,
+          "provider": {
+            "type": "http",
+            "url": "${web_app_url}",
+            "timeout": 3
+          }
+        }
+      ]
+    },
+    "method": [
+      {
+        "type": "action",
+        "name": "terminate-greeting-service",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.actions",
+          "func": "terminate_pods",
+          "arguments": {
+            "label_selector": "run=frontend",
+            "ns": "default"
+          }
+        }
+      },
+      {
+        "type": "probe",
+        "name": "fetch-application-logs",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.probes",
+          "func": "read_pod_logs",
+          "arguments": {
+            "label_selector": "run=frontend",
+            "last": "30s",
+            "ns": "default"
+          }
+        }
+      }
+    ],
+    "rollbacks": [],
+    "dry": false
+  },
+  "start": "2019-06-08T15:50:16.696817",
+  "status": "failed",
+  "deviated": true,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "application-should-be-alive-and-healthy",
+            "tolerance": true,
+            "provider": {
+              "type": "python",
+              "module": "chaosk8s.pod.probes",
+              "func": "pods_in_phase",
+              "arguments": {
+                "label_selector": "run=frontend",
+                "phase": "Running",
+                "ns": "default"
+              }
+            }
+          },
+          "output": true,
+          "status": "succeeded",
+          "start": "2019-06-08T15:50:16.697966",
+          "end": "2019-06-08T15:50:17.134024",
+          "duration": 0.436058,
+          "tolerance_met": true
+        },
+        {
+          "activity": {
+            "type": "probe",
+            "name": "application-must-respond-normally",
+            "tolerance": 200,
+            "provider": {
+              "type": "http",
+              "url": "${web_app_url}",
+              "timeout": 3
+            }
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Date": "Sat, 08 Jun 2019 15:50:17 GMT",
+              "Connection": "keep-alive",
+              "Transfer-Encoding": "chunked"
+            },
+            "body": "[{\"text\":\"this is journal #1\"},{\"text\":\"this is journal #2\"}]"
+          },
+          "status": "succeeded",
+          "start": "2019-06-08T15:50:17.134407",
+          "end": "2019-06-08T15:50:17.276475",
+          "duration": 0.142068,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": false,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "application-should-be-alive-and-healthy",
+            "tolerance": true,
+            "provider": {
+              "type": "python",
+              "module": "chaosk8s.pod.probes",
+              "func": "pods_in_phase",
+              "arguments": {
+                "label_selector": "run=frontend",
+                "phase": "Running",
+                "ns": "default"
+              }
+            }
+          },
+          "output": null,
+          "status": "failed",
+          "exception": [
+            "Traceback (most recent call last):\n",
+            "  File \"/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py\", line 55, in run_python_activity\n    return func(**arguments)\n",
+            "  File \"/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py\", line 111, in pods_in_phase\n    name=label_selector, s=d.status.phase, p=phase))\n",
+            "chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'\n",
+            "\nDuring handling of the above exception, another exception occurred:\n\n",
+            "chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'\n"
+          ],
+          "start": "2019-06-08T15:50:18.792579",
+          "end": "2019-06-08T15:50:19.221681",
+          "duration": 0.429102,
+          "tolerance_met": false
+        }
+      ]
+    }
+  },
+  "run": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "terminate-greeting-service",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.actions",
+          "func": "terminate_pods",
+          "arguments": {
+            "label_selector": "run=frontend",
+            "ns": "default"
+          }
+        }
+      },
+      "output": null,
+      "status": "succeeded",
+      "start": "2019-06-08T15:50:17.277974",
+      "end": "2019-06-08T15:50:18.001922",
+      "duration": 0.723948
+    },
+    {
+      "activity": {
+        "type": "probe",
+        "name": "fetch-application-logs",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.probes",
+          "func": "read_pod_logs",
+          "arguments": {
+            "label_selector": "run=frontend",
+            "last": "30s",
+            "ns": "default"
+          }
+        }
+      },
+      "output": {
+        "frontend-64576bcfb7-5n9hs": "",
+        "frontend-64576bcfb7-8pzx9": "",
+        "frontend-64576bcfb7-gdg96": "2019-06-08T15:49:58.742225511Z api server up and running.\n",
+        "frontend-64576bcfb7-jwkln": "2019-06-08T15:50:17.238709247Z /api/\n"
+      },
+      "status": "succeeded",
+      "start": "2019-06-08T15:50:18.002553",
+      "end": "2019-06-08T15:50:18.790490",
+      "duration": 0.787937
+    }
+  ],
+  "rollbacks": [],
+  "end": "2019-06-08T15:50:19.222564",
+  "duration": 2.5433201789855957
+}

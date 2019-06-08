@@ -1,0 +1,655 @@
+[36m[2019-06-08 10:37:14 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:37:14 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:37:14 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:37:15 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:37:15 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:37:15 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:37:15 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:37:15 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:37:15 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:37:15 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:37:16 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:37:16 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:37:16 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:37:16 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:37:16 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:37:16 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:37:16 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:37:16 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:37:16 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:37:16 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:37:16 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:37:16 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:37:16 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:37:16 DEBUG][39m Found 0 pods matching label 'name=frontend' in ns 'default'
+[36m[2019-06-08 10:37:16 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 105, in pods_in_phase
+        "no pods '{name}' were found".format(name=label_selector))
+    chaoslib.exceptions.ActivityFailed: no pods 'name=frontend' were found
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 219, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 105, in pods_in_phase
+        "no pods '{name}' were found".format(name=label_selector))
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: no pods 'name=frontend' were found
+[31m[2019-06-08 10:37:16 ERROR][39m   => failed: chaoslib.exceptions.ActivityFailed: no pods 'name=frontend' were found
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:37:16 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:37:16 CRITICAL][39m Steady state probe 'application-should-be-alive-and-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:37:16 INFO][39m Let's rollback...
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:37:16 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:37:16 INFO][39m Experiment ended with status: failed
+[36m[2019-06-08 10:37:16 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:37:16 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:37:16 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:39:06 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:39:06 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:39:06 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:39:09 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:39:09 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:39:09 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:39:09 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:39:09 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:39:09 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:39:09 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:39:09 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:39:09 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:39:09 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:39:09 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:39:09 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:39:09 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:39:09 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:39:09 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:39:09 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:39:09 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:39:09 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:39:09 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:39:09 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:39:09 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:39:09 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:39:09 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:39:10 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:39:10 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:39:10 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:39:10 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:39:10 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:39:10 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:39:10 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_http_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 48, in run_http_activity
+        verify=verify_tls)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 75, in get
+        return request('get', url, params=params, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 60, in request
+        return session.request(method=method, url=url, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 519, in request
+        prep = self.prepare_request(req)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 462, in prepare_request
+        hooks=merge_hooks(request.hooks, self.hooks),
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/models.py", line 313, in prepare
+        self.prepare_url(url, params)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/models.py", line 387, in prepare_url
+        raise MissingSchema(error)
+    requests.exceptions.MissingSchema: Invalid URL '40.113.204.159': No schema supplied. Perhaps you meant http://40.113.204.159?
+[36m[2019-06-08 10:39:10 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:39:10 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:39:10 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:39:10 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:40:53 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:40:53 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:40:53 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:40:54 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:40:54 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:40:54 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:40:54 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:40:54 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:40:54 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:40:54 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:40:55 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:40:55 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:40:55 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:40:55 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:40:55 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:40:55 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:40:55 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:40:55 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:40:55 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:40:55 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:40:55 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:40:55 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:40:55 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:40:55 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:40:55 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:40:55 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:40:58 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:40:58 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:40:58 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:40:58 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:40:58 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:40:58 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:41:01 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+        (self._dns_host, self.port), self.timeout, **extra_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+        raise err
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+        sock.connect(sa)
+    socket.timeout: timed out
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 603, in urlopen
+        chunked=chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 355, in _make_request
+        conn.request(method, url, **httplib_request_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1229, in request
+        self._send_request(method, url, body, headers, encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1275, in _send_request
+        self.endheaders(body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1224, in endheaders
+        self._send_output(message_body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1016, in _send_output
+        self.send(msg)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 956, in send
+        self.connect()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 183, in connect
+        conn = self._new_conn()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 165, in _new_conn
+        (self.host, self.timeout))
+    urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x10a0ebb38>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+        timeout=timeout
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 641, in urlopen
+        _stacktrace=sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
+        raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10a0ebb38>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 48, in run_http_activity
+        verify=verify_tls)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 75, in get
+        return request('get', url, params=params, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 60, in request
+        return session.request(method=method, url=url, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+        resp = self.send(prep, **send_kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+        r = adapter.send(request, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+        raise ConnectTimeout(e, request=request)
+    requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10a0ebb38>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_http_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 82, in run_http_activity
+        u=url, x=str(cex)))
+    chaoslib.exceptions.ActivityFailed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10a0ebb38>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[31m[2019-06-08 10:41:01 ERROR][39m   => failed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10a0ebb38>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[36m[2019-06-08 10:41:01 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:41:01 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:41:01 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:41:01 CRITICAL][39m Steady state probe 'application-must-respond-normally' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:41:01 INFO][39m Let's rollback...
+[36m[2019-06-08 10:41:01 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:41:01 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:41:01 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:41:01 INFO][39m Experiment ended with status: failed
+[36m[2019-06-08 10:41:01 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:41:01 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:41:01 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:43:02 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:43:02 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:43:02 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:43:04 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:43:04 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:43:04 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:43:04 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:43:04 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:43:04 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:43:04 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:43:04 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:43:04 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:43:04 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:43:04 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:43:04 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:43:04 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:43:04 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:43:04 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:43:04 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:43:04 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:43:04 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:43:04 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:43:04 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:43:04 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:43:04 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:43:04 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:43:05 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:43:05 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:43:05 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:43:05 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:43:05 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:43:05 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:43:08 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+        (self._dns_host, self.port), self.timeout, **extra_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+        raise err
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+        sock.connect(sa)
+    socket.timeout: timed out
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 603, in urlopen
+        chunked=chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 355, in _make_request
+        conn.request(method, url, **httplib_request_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1229, in request
+        self._send_request(method, url, body, headers, encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1275, in _send_request
+        self.endheaders(body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1224, in endheaders
+        self._send_output(message_body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1016, in _send_output
+        self.send(msg)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 956, in send
+        self.connect()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 183, in connect
+        conn = self._new_conn()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 165, in _new_conn
+        (self.host, self.timeout))
+    urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x10c97b780>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+        timeout=timeout
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 641, in urlopen
+        _stacktrace=sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
+        raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10c97b780>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 48, in run_http_activity
+        verify=verify_tls)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 75, in get
+        return request('get', url, params=params, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 60, in request
+        return session.request(method=method, url=url, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+        resp = self.send(prep, **send_kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+        r = adapter.send(request, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+        raise ConnectTimeout(e, request=request)
+    requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10c97b780>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_http_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 82, in run_http_activity
+        u=url, x=str(cex)))
+    chaoslib.exceptions.ActivityFailed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10c97b780>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[31m[2019-06-08 10:43:08 ERROR][39m   => failed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x10c97b780>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[36m[2019-06-08 10:43:08 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:43:08 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:43:08 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:43:08 CRITICAL][39m Steady state probe 'application-must-respond-normally' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:43:08 INFO][39m Let's rollback...
+[36m[2019-06-08 10:43:08 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:43:08 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:43:08 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:43:08 INFO][39m Experiment ended with status: failed
+[36m[2019-06-08 10:43:08 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:43:08 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:43:08 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:46:28 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:46:28 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:46:28 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:46:28 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:46:28 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:46:28 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:46:28 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:46:28 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:46:28 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:46:28 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:46:29 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:46:29 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:46:29 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:46:29 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:46:29 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:46:29 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:46:29 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:46:29 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:46:29 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:46:29 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:46:29 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:46:29 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:46:29 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:46:29 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:46:29 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:46:29 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:46:29 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:46:29 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:46:29 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:46:29 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:46:29 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:46:29 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:46:32 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+        (self._dns_host, self.port), self.timeout, **extra_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+        raise err
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+        sock.connect(sa)
+    socket.timeout: timed out
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 603, in urlopen
+        chunked=chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 355, in _make_request
+        conn.request(method, url, **httplib_request_kw)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1229, in request
+        self._send_request(method, url, body, headers, encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1275, in _send_request
+        self.endheaders(body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1224, in endheaders
+        self._send_output(message_body, encode_chunked=encode_chunked)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 1016, in _send_output
+        self.send(msg)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/http/client.py", line 956, in send
+        self.connect()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 183, in connect
+        conn = self._new_conn()
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connection.py", line 165, in _new_conn
+        (self.host, self.timeout))
+    urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x111d4d160>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+        timeout=timeout
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 641, in urlopen
+        _stacktrace=sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/urllib3/util/retry.py", line 399, in increment
+        raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x111d4d160>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 48, in run_http_activity
+        verify=verify_tls)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 75, in get
+        return request('get', url, params=params, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/api.py", line 60, in request
+        return session.request(method=method, url=url, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+        resp = self.send(prep, **send_kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+        r = adapter.send(request, **kwargs)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+        raise ConnectTimeout(e, request=request)
+    requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x111d4d160>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_http_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/http.py", line 82, in run_http_activity
+        u=url, x=str(cex)))
+    chaoslib.exceptions.ActivityFailed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x111d4d160>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[31m[2019-06-08 10:46:32 ERROR][39m   => failed: failed to connect to http://40.113.204.159/: HTTPConnectionPool(host='40.113.204.159', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x111d4d160>, 'Connection to 40.113.204.159 timed out. (connect timeout=3)'))
+[36m[2019-06-08 10:46:32 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:46:32 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:46:32 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:46:32 CRITICAL][39m Steady state probe 'application-must-respond-normally' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:46:32 INFO][39m Let's rollback...
+[36m[2019-06-08 10:46:32 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:46:32 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:46:32 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:46:32 INFO][39m Experiment ended with status: failed
+[36m[2019-06-08 10:46:32 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:46:32 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:46:32 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:49:18 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:49:18 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:49:18 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:49:22 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:49:22 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:49:22 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:49:22 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:49:22 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:49:22 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:49:22 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:49:22 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:49:22 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:49:22 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:49:22 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:49:22 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:49:22 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:49:22 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:49:22 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:49:22 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:49:22 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:49:22 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:49:22 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:49:22 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:49:22 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:49:22 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:49:22 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:49:23 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:49:23 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:49:23 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:49:23 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:49:23 DEBUG][39m   => succeeded with '{'status': 200, 'headers': {'Date': 'Sat, 08 Jun 2019 15:49:23 GMT', 'Connection': 'keep-alive', 'Transfer-Encoding': 'chunked'}, 'body': '[{"text":"this is journal #1"},{"text":"this is journal #2"}]'}'
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:49:23 DEBUG][39m allowed tolerance is 200
+[32m[2019-06-08 10:49:23 INFO][39m Steady state hypothesis is met!
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'method'
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:49:23 INFO][39m Action: terminate-greeting-service
+[36m[2019-06-08 10:49:23 DEBUG][39m Activity 'terminate-greeting-service' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-06-08 10:49:23 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:49:23 DEBUG][39m Found 3 pods labelled 'run=frontend' in ns default
+[36m[2019-06-08 10:49:23 DEBUG][39m Picked pods 'frontend-64576bcfb7-2826w' to be terminated
+[36m[2019-06-08 10:49:23 DEBUG][39m   => succeeded without any result value
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:49:23 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:49:23 INFO][39m Probe: fetch-application-logs
+[36m[2019-06-08 10:49:23 DEBUG][39m Activity 'fetch-application-logs' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:49:23 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:49:24 DEBUG][39m Found 4 pods: [frontend-64576bcfb7-2826w, frontend-64576bcfb7-5n9hs, frontend-64576bcfb7-gdg96, frontend-64576bcfb7-jwkln] in ns 'default'
+[36m[2019-06-08 10:49:24 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-2826w'
+[36m[2019-06-08 10:49:24 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-5n9hs'
+[36m[2019-06-08 10:49:24 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-gdg96'
+[36m[2019-06-08 10:49:24 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-jwkln'
+[36m[2019-06-08 10:49:24 DEBUG][39m   => succeeded with '{'frontend-64576bcfb7-2826w': '', 'frontend-64576bcfb7-5n9hs': '2019-06-08T15:49:23.242094178Z /api/\n', 'frontend-64576bcfb7-gdg96': '', 'frontend-64576bcfb7-jwkln': ''}'
+[36m[2019-06-08 10:49:24 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:49:24 DEBUG][39m No controls to apply on 'method'
+[32m[2019-06-08 10:49:24 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:49:24 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:49:24 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:49:24 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:49:24 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:49:24 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:49:25 DEBUG][39m Found 4 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:49:25 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 111, in pods_in_phase
+        name=label_selector, s=d.status.phase, p=phase))
+    chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 219, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 111, in pods_in_phase
+        name=label_selector, s=d.status.phase, p=phase))
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+[31m[2019-06-08 10:49:25 ERROR][39m   => failed: chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+[36m[2019-06-08 10:49:25 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:49:25 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:49:25 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:49:25 CRITICAL][39m Steady state probe 'application-should-be-alive-and-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:49:25 INFO][39m Let's rollback...
+[36m[2019-06-08 10:49:25 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:49:25 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:49:25 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:49:25 INFO][39m Experiment ended with status: deviated
+[32m[2019-06-08 10:49:25 INFO][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-06-08 10:49:25 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:49:25 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:49:25 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:50:13 DEBUG][39m ###############################################################################
+[36m[2019-06-08 10:50:13 DEBUG][39m Running command 'run'
+[36m[2019-06-08 10:50:13 DEBUG][39m Using settings file '/Users/strebeld/.chaostoolkit/settings.yaml'
+[36m[2019-06-08 10:50:16 DEBUG][39m The Chaos Toolkit settings file could not be found at '/Users/strebeld/.chaostoolkit/settings.yaml'.
+[36m[2019-06-08 10:50:16 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:50:16 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:50:16 INFO][39m Validating the experiment's syntax
+[36m[2019-06-08 10:50:16 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:50:16 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:50:16 DEBUG][39m Secrets loaded
+[32m[2019-06-08 10:50:16 INFO][39m Experiment looks valid
+[36m[2019-06-08 10:50:16 DEBUG][39m Clearing activities cache
+[36m[2019-06-08 10:50:16 DEBUG][39m Building activity cache...
+[36m[2019-06-08 10:50:16 DEBUG][39m Cached 4 activities
+[32m[2019-06-08 10:50:16 INFO][39m Running experiment: Terminating the greeting service should not impact users
+[36m[2019-06-08 10:50:16 DEBUG][39m Loading configuration...
+[36m[2019-06-08 10:50:16 DEBUG][39m Loading secrets...
+[36m[2019-06-08 10:50:16 DEBUG][39m Secrets loaded
+[36m[2019-06-08 10:50:16 DEBUG][39m Initializing controls
+[36m[2019-06-08 10:50:16 DEBUG][39m No controls to apply on 'experiment'
+[32m[2019-06-08 10:50:16 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:50:16 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:50:16 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:50:16 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:50:16 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:50:16 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:50:17 DEBUG][39m Found 3 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:50:17 DEBUG][39m   => succeeded with 'True'
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:50:17 DEBUG][39m allowed tolerance is True
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:50:17 INFO][39m Probe: application-must-respond-normally
+[36m[2019-06-08 10:50:17 DEBUG][39m   => succeeded with '{'status': 200, 'headers': {'Date': 'Sat, 08 Jun 2019 15:50:17 GMT', 'Connection': 'keep-alive', 'Transfer-Encoding': 'chunked'}, 'body': '[{"text":"this is journal #1"},{"text":"this is journal #2"}]'}'
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:50:17 DEBUG][39m allowed tolerance is 200
+[32m[2019-06-08 10:50:17 INFO][39m Steady state hypothesis is met!
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'method'
+[36m[2019-06-08 10:50:17 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:50:17 INFO][39m Action: terminate-greeting-service
+[36m[2019-06-08 10:50:17 DEBUG][39m Activity 'terminate-greeting-service' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-06-08 10:50:17 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:50:17 DEBUG][39m Found 3 pods labelled 'run=frontend' in ns default
+[36m[2019-06-08 10:50:17 DEBUG][39m Picked pods 'frontend-64576bcfb7-5n9hs' to be terminated
+[36m[2019-06-08 10:50:18 DEBUG][39m   => succeeded without any result value
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:50:18 INFO][39m Probe: fetch-application-logs
+[36m[2019-06-08 10:50:18 DEBUG][39m Activity 'fetch-application-logs' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:50:18 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:50:18 DEBUG][39m Found 4 pods: [frontend-64576bcfb7-5n9hs, frontend-64576bcfb7-8pzx9, frontend-64576bcfb7-gdg96, frontend-64576bcfb7-jwkln] in ns 'default'
+[36m[2019-06-08 10:50:18 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-5n9hs'
+[36m[2019-06-08 10:50:18 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-8pzx9'
+[36m[2019-06-08 10:50:18 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-gdg96'
+[36m[2019-06-08 10:50:18 DEBUG][39m Fetching logs for pod 'frontend-64576bcfb7-jwkln'
+[36m[2019-06-08 10:50:18 DEBUG][39m   => succeeded with '{'frontend-64576bcfb7-5n9hs': '', 'frontend-64576bcfb7-8pzx9': '', 'frontend-64576bcfb7-gdg96': '2019-06-08T15:49:58.742225511Z api server up and running.\n', 'frontend-64576bcfb7-jwkln': '2019-06-08T15:50:17.238709247Z /api/\n'}'
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'activity'
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'method'
+[32m[2019-06-08 10:50:18 INFO][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'hypothesis'
+[36m[2019-06-08 10:50:18 DEBUG][39m No controls to apply on 'activity'
+[32m[2019-06-08 10:50:18 INFO][39m Probe: application-should-be-alive-and-healthy
+[36m[2019-06-08 10:50:18 DEBUG][39m Activity 'application-should-be-alive-and-healthy' loaded from '/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py'
+[36m[2019-06-08 10:50:18 DEBUG][39m Using Kubernetes context: default
+[36m[2019-06-08 10:50:19 DEBUG][39m Found 4 pods matching label 'run=frontend' in ns 'default'
+[36m[2019-06-08 10:50:19 DEBUG][39m Activity failed
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 111, in pods_in_phase
+        name=label_selector, s=d.status.phase, p=phase))
+    chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/activity.py", line 219, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/Users/strebeld/.pyenv/versions/3.7.3/lib/python3.7/site-packages/chaosk8s/pod/probes.py", line 111, in pods_in_phase
+        name=label_selector, s=d.status.phase, p=phase))
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+[31m[2019-06-08 10:50:19 ERROR][39m   => failed: chaoslib.exceptions.ActivityFailed: pod 'run=frontend' is in phase 'Pending' but should be 'Running'
+[36m[2019-06-08 10:50:19 DEBUG][39m No controls to apply on 'activity'
+[33m[2019-06-08 10:50:19 WARNING][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-06-08 10:50:19 DEBUG][39m No controls to apply on 'hypothesis'
+[31m[2019-06-08 10:50:19 CRITICAL][39m Steady state probe 'application-should-be-alive-and-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-06-08 10:50:19 INFO][39m Let's rollback...
+[36m[2019-06-08 10:50:19 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:50:19 INFO][39m No declared rollbacks, let's move on.
+[36m[2019-06-08 10:50:19 DEBUG][39m No controls to apply on 'rollback'
+[32m[2019-06-08 10:50:19 INFO][39m Experiment ended with status: deviated
+[32m[2019-06-08 10:50:19 INFO][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-06-08 10:50:19 DEBUG][39m No controls to apply on 'experiment'
+[36m[2019-06-08 10:50:19 DEBUG][39m Cleaning up controls
+[36m[2019-06-08 10:50:19 DEBUG][39m Clearing activities cache

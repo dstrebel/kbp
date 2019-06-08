@@ -1,0 +1,74 @@
+{
+    "version": "1.0.0",
+    "title": "Terminating the greeting service should not impact users",
+    "description": "How does this experiment impact your users? Are there errors or does the frontend get slower?",
+    "tags": [
+        "kubernetes"
+    ],
+    "configuration": {
+        "web_app_url": {
+            "type": "env",
+            "key": "FRONTEND_URL"
+        }
+    },
+    "steady-state-hypothesis": {
+        "title": "Services are all available and healthy",
+        "probes": [
+            {
+                "type": "probe",
+                "name": "application-should-be-alive-and-healthy",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "chaosk8s.pod.probes",
+                    "func": "pods_in_phase",
+                    "arguments": {
+                        "label_selector": "run=frontend",
+                        "phase": "Running",
+                        "ns": "default"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "application-must-respond-normally",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "url": "${web_app_url}",
+                    "timeout": 3
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "type": "action",
+            "name": "terminate-frontend-service",
+            "provider": {
+                "type": "python",
+                "module": "chaosk8s.pod.actions",
+                "func": "terminate_pods",
+                "arguments": {
+                    "label_selector": "run=frontend",
+                    "ns": "default"
+                }
+            }
+        },
+        {
+            "type": "probe",
+            "name": "fetch-application-logs",
+            "provider": {
+                "type": "python",
+                "module": "chaosk8s.pod.probes",
+                "func": "read_pod_logs",
+                "arguments": {
+                    "label_selector": "run=frontend",
+                    "last": "30s",
+                    "ns": "default"
+                }
+            }
+        }
+    ],
+    "rollbacks": []
+}
