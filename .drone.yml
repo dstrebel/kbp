@@ -17,7 +17,7 @@ pipeline:
     image: plugins/docker
     dockerfile: ./redis/Dockerfile
     context: ./redis
-    repo: dstrebel/redis
+    repo: lexarflash8g/redis
     tags: [latest, v2]
     secrets: [ docker_username, docker_password ]
 
@@ -25,7 +25,7 @@ pipeline:
     image: plugins/docker
     dockerfile: ./frontend/Dockerfile
     context: ./frontend
-    repo: dstrebel/frontend
+    repo: lexarflash8g/frontend
     tags: [latest, v2]
     secrets: [ docker_username, docker_password ]
 
